@@ -24,7 +24,7 @@
         </v-icon>
       </v-btn>
       <v-spacer />
-      <v-btn icon v-for="(icon, i) in rightTopIcon" :key="i">
+      <v-btn icon v-for="(icon, i) in rightTopIcon" :key="i" class="mr-3">
         <v-icon>
           {{ icon }}
         </v-icon>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import {eventBus} from '../main'
 import HeaderRightMenu from './HeaderRightMenu'
 export default {
   data: () => ({
@@ -46,8 +47,8 @@ export default {
   methods:{
     drawer(){
       this.drawerMenu = !this.drawerMenu;
-      this.$emit("dra",this.drawerMenu);
-      // console.log(this.drawerMenu);
+      eventBus.$emit("drawerOnOff",this.drawerMenu);
+
     }
   }
 };

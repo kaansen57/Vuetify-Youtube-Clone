@@ -1,12 +1,12 @@
 <template>
   <div>
-    <v-menu :close-on-content-click="false" :nudge-width="250" offset-x>
-      <template v-slot:activator="{ on }">
+    <v-menu :close-on-content-click="false" :nudge-width="250" offset-x >
+      <template v-slot:activator="{ on }" >
         <v-avatar size="40" role="button">
           <img :src="require('../assets/avatar.svg')" v-on="on" />
         </v-avatar>
       </template>
-      <v-card width="315" class="mr-12">
+      <v-card width="315" >
         <v-list class="pt-0">
           <v-list-item>
             <v-list-item-avatar>
@@ -15,15 +15,15 @@
               </v-avatar>
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-liste-item-title class="mt-6">
+              <v-list-item-title class="mt-6">
                 <strong>Kaan ŞEN</strong>
-              </v-liste-item-title>
-              <v-liste-item-subtitle class="mt-2"
-                >Youtube Clone</v-liste-item-subtitle
+              </v-list-item-title>
+              <v-list-item-subtitle class="mt-2"
+                >Youtube Clone</v-list-item-subtitle
               >
               <a href="#" class="text-decoration-none mt-2">
-                <v-liste-item-subtitle
-                  >Google Hesabınızı Yönetin</v-liste-item-subtitle
+                <v-list-item-subtitle
+                  >Google Hesabınızı Yönetin</v-list-item-subtitle
                 ></a
               >
             </v-list-item-content>
