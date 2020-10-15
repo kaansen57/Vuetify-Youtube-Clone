@@ -1,10 +1,10 @@
 <template>
-  <v-main>
-    <v-container>
+  <v-main >
+    <v-container  >
       <v-row class="mt-5">
-        <v-col sm="6" md="4" lg="3" xl="2" v-for="(item, i) in videos" :key="i">
+        <v-col cols="6" sm="6" md="4" lg="3" xl="2"  v-for="(item, i) in videos" :key="i"  >
           <a href="" class="text-decoration-none">
-            <v-card width="260" height="280" tile>
+            <v-card width="260" :height="height" tile>
               <v-img
                 width="260"
                 height="145"
@@ -13,10 +13,12 @@
               ></v-img>
 
               <v-card-title>
-                <v-avatar size="30" class="mr-2 ">
-                  <img :src="require('../assets/avatar.svg')" v-on="on" />
+                <div>
+                <v-avatar size="35" class="mr-2 ">
+                  <img :src="require('../assets/avatar.svg')" />
                 </v-avatar>
-                {{ item.title }}
+                  {{ item.title }}
+                 </div>
               </v-card-title>
               <v-card-subtitle class="mt-1">
                 {{ item.sharing }} <br />
@@ -191,10 +193,18 @@ export default {
           new Date().getFullYear(),
       },
     ],
+    height: 280
   }),
+  methods:{
+    
+  },
+  mounted(){
+    if(this.$vuetify.breakpoint.width < 600) {
+      this.height = 350;
+    }
+  }
 };
 </script>
 
 <style scoped>
-
 </style>

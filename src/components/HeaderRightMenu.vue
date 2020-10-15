@@ -1,12 +1,20 @@
 <template>
   <div>
-    <v-menu :close-on-content-click="false" :nudge-width="250" offset-x >
-      <template v-slot:activator="{ on }" >
+    <v-menu
+      :close-on-content-click="false"
+      :nudge-width="250"
+      offset-y
+      offset-x
+      transition="scale-transition"
+      class="overflow-y-auto"
+      :max-height="maxHeight"
+    >
+      <template v-slot:activator="{ on: active }">
         <v-avatar size="40" role="button">
-          <img :src="require('../assets/avatar.svg')" v-on="on" />
+          <img :src="require('../assets/avatar.svg')" v-on="active" />
         </v-avatar>
       </template>
-      <v-card width="315" >
+      <v-card width="315">
         <v-list class="pt-0">
           <v-list-item>
             <v-list-item-avatar>
@@ -19,10 +27,10 @@
                 <strong>Kaan ŞEN</strong>
               </v-list-item-title>
               <v-list-item-subtitle class="mt-2"
-                >Youtube Clone</v-list-item-subtitle
-              >
+                >Youtube Clone
+              </v-list-item-subtitle>
               <a href="#" class="text-decoration-none mt-2">
-                <v-list-item-subtitle
+                <v-list-item-subtitle style="color:#196BD7;font-size:14px;"
                   >Google Hesabınızı Yönetin</v-list-item-subtitle
                 ></a
               >
@@ -73,13 +81,21 @@ export default {
       { icon: "mdi-help-circle", title: "Yardım" },
       { icon: "mdi-message-alert", title: "Geri bildirim gönder" },
     ],
+    maxHeight : 600
   }),
-  watch:{
-    theme(next){
+  watch: {
+    theme(next) {
       this.$vuetify.theme.dark = next;
+    },
+  },
+ mounted () {
+     if (this.$vuetify.breakpoint.width < 390 ) {
+           return this.maxHeight = 400;
+        }
     }
-  }
 };
 </script>
 
-<style></style>
+<style scoped>
+  
+</style>
